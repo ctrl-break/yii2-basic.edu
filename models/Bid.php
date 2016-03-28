@@ -34,8 +34,10 @@ class Bid extends \yii\db\ActiveRecord
     {
         return [
             [['date_create'], 'safe'],
-            [['name', 'address', 'email'], 'string', 'max' => self::MAX_SIZE_NAME_ADDRESS],
-            [['phone'], 'string', 'max' => self::MAX_SIZE_PHONE],
+            [['name', 'address'], 'string', 'max' => self::MAX_SIZE_NAME_ADDRESS],
+            [['email'], 'email'],
+            [['phone'], 'number', 'max' => self::MAX_SIZE_PHONE],
+            [['name', 'address', 'email', 'phone'], 'required' ],
         ];
     }
 
